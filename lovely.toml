@@ -1,0 +1,11 @@
+[manifest]
+version = '1.4.3'
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = "if scoring_hand[i].ability.effect ~= 'Stone Card' then"
+position = 'before'
+payload = "if ReturnByDebt then ReturnByDebt.mark_first_card(scoring_hand[i]) end"
+match_indent = true
